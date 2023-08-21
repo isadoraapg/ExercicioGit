@@ -1,5 +1,7 @@
 package ExercicioGit;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ExercicioGit {
@@ -20,8 +22,20 @@ public class ExercicioGit {
 		N4 = sc.nextInt();
 		N5 = sc.nextInt();
 		
-		soma = N1 + N2 + N3 + N4 + N5;
 		
+		
+        
+		List<Integer> notas = new ArrayList<>();
+		
+		notas.add(N1);
+		notas.add(N2);
+		notas.add(N3);
+		notas.add(N4);
+		notas.add(N5);
+		
+		
+		
+		soma = N1 + N2 + N3 + N4 + N5;
 		System.out.println("A soma das notas é: " + soma);
 		
 		
