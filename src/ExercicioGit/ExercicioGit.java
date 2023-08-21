@@ -9,43 +9,80 @@ public class ExercicioGit {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		
-		
-		Scanner sc = new Scanner(System.in);
-		
-		int N1, N2, N3, N4, N5, soma;
-		
-		System.out.println("Digite 5 notas: ");
-		N1 = sc.nextInt();
-		N2 = sc.nextInt();
-		N3 = sc.nextInt();
-		N4 = sc.nextInt();
-		N5 = sc.nextInt();
-		
-		
-		
-        
-		List<Integer> notas = new ArrayList<>();
-		
-		notas.add(N1);
-		notas.add(N2);
-		notas.add(N3);
-		notas.add(N4);
-		notas.add(N5);
-		
-		
-		
-		soma = N1 + N2 + N3 + N4 + N5;
+		List<Integer> notas = lerNotas();
+
+		int soma = somarNotas(notas);
 		System.out.println("A soma das notas é: " + soma);
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
+		double media = calcularMedia(notas);
+		System.out.println("A média das notas é: " + media);
+
+		int contadorNotasMenoresQue6 = contarNotasMenoresQue6(notas);
+		System.out.println("Quantidade de notas menores que 6: " + contadorNotasMenoresQue6);
 	}
 
+	public static List<Integer> lerNotas() {
+		List<Integer> notas = new ArrayList<>();
+		Scanner scanner = new Scanner(System.in);
+
+		for (int i = 0; i < 5; i++) {
+			System.out.print("Digite a nota do aluno " + (i + 1) + ": ");
+			int nota = scanner.nextInt();
+			notas.add(nota);
+		}
+
+		return notas;
+	}
+
+	public static int somarNotas(List<Integer> notas) {
+		int soma = 0;
+
+		for (int nota : notas) {
+			soma += nota;
+		}
+
+		return soma;
+	}
+
+	public static double calcularMedia(List<Integer> notas) {
+		int soma = somarNotas(notas);
+		return (double) soma / notas.size();
+	}
+
+	public static int contarNotasMenoresQue6(List<Integer> notas) {
+		int contador = 0;
+
+		for (int nota : notas) {
+			if (nota < 6) {
+				contador++;
+			}
+		}
+
+		return contador;
+
+	}
+
+	public static double encontrarMenorNota(List<Double> notas) {
+		double menorNota = notas.get(0);
+
+		for (double nota : notas) {
+			if (nota < menorNota) {
+				menorNota = nota;
+			}
+		}
+
+		return menorNota;
+	}
+
+	public static double encontrarMaiorNota(List<Double> notas) {
+		double maiorNota = notas.get(0);
+
+		for (double nota : notas) {
+			if (nota > maiorNota) {
+				maiorNota = nota;
+			}
+		}
+
+		return maiorNota;
+	}
 }
